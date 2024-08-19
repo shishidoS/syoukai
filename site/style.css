@@ -1,0 +1,40 @@
+/* ページ全体（bodyタグ）の設定 */
+body {
+  /* 背景色 */
+  background-color: #fff0f5;
+  /* 文字色 */
+  color: #c875a5;
+}
+
+/* 一番大きな見出し（h1タグ）の設定 */
+h1 {
+  /* 位置 */
+  text-align: center;
+}
+
+/* テーブル（tableタグ）の設定 */
+table {
+  /* 位置 */
+  margin-left: auto;
+  margin-right: auto;
+  /*  */
+  border-width: 1px;
+  /* 内枠の太さ */
+  border-spacing: 0px;
+  /* 枠線の色 */
+  border-color: #db7093;
+  /* 背景色 */
+  background-color: #fffcf3;
+}
+
+/* テーブルの見出し（thタグ）の設定 */
+th {
+  /* 最小の横幅 */
+  min-width: 160px;
+}
+
+/* 「学歴」用テーブル（educational-backgrounds__tableクラス）の設定 */
+.educational-backgrounds__table {
+  /* 横幅 */
+  width: 100%;
+}
