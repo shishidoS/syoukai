@@ -2,19 +2,98 @@
 title: TOP
 layout: default
 ---
+<head>
+  <meta charset="utf-8">
+  <title>homepage</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<h1>{{ page.title }}</h1>
+<style>
+  .posi{
+      display: flex;
+      flex-direction: column; 
+      align-items: center;    
+      justify-content: center;
+      height: 21vh; 
+      margin: 0;        
+  }
+  .search-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;   
+  justify-content: center; /* 中央揃えに変更 */
+  height: 37vh; 
+  margin: 1px;   
+  padding: 1px 1px;
+  
+  }
+  .search-button{
+      margin: 1px; 
+      padding: 1px 1px;
+      height: 6vh; 
+      font-size: 30px;
+  }
+.btn {
+      margin-top: 0px;
+      align-items: left;
+      background: white;   
+      border: 1px solid white;
+      padding: 0px 0px;
+      height: 0vh;
+      margin: 0;
+      
+  }
+  .syousai {
+      width: 200px; 
+      height: 25px; 
+      font-size: 24px;    
+      display: flex;          
+      justify-content: center; 
+      align-items: center;    
+      height: 10vh; 
+      padding: 20px 8px;
+      border: 1px solid white;
+      background: #FF82B2;  
+      margin:6px;
+      border-radius:10px;
+  }
+  .kensaku {
+      background: #98f5ff; 
+      font-size: 30px; 
+      margin-right: 1px; 
+  }
+  h1 {
+      font-size: 50px;
+      font-weight: bold;
+  }
+</style>
 
-<p>トップページです。</p>
+<!--<h1>{{ page.title }}</h1>-->
 
-<img class="img-responsive center-block" src="スクリーンショット 2024-04-03 162714.png">
+<h1 class="main" style="text-align:center">今季の面接ページ</h1>
+<!--<p>トップページです。</p>-->
 
+<a class="btn btn-primary" href="home.html" target="_blank">
+  <img class="home" src="スクリーンショット 2024-08-20 120437.png" height="90" width="90" />
+</a>
+<div class="search-container">
+  <input type="text" class="kensaku" placeholder="単語検索"><button class="search-button">検索</button>
+</div>
+<!--<div class="posi">    
+  <a class="syousai" href="{{ post.url }}">山田太郎</a>
+  <button class="syousai">田中花子</button>
+  <button class="syousai">佐藤健太</button>
+  <button class="syousai">木村直子</button>
+  <button class="syousai">空白</button>
+</div>-->
 <ul>
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">
-        {{ post.name }}
-      </a>
-    </li>
+  <div class="posi">
+      <a class="syousai" href="{{ post.url }}">
+       <button>{{ post.name }}</button> 
+      </a></div>
+    
   {% endfor  %}
 </ul>
