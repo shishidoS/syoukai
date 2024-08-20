@@ -1,8 +1,60 @@
----
-layout: default
----
-
-<a href="/">← もどる</a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 10px;
+      line-height: 1.4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 5px;
+      border: 1px solid #ddd;
+      text-align: left;
+      font-size: 13px;
+    }
+    th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    ul li {
+      margin: 0;
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a class="btn btn-primary" href="home.html" target="_blank">
+    <img src="スクリーンショット 2024-08-20 120437.png" height="70" width="70" />
+  </a>
+<h1>{{ page.name }}さんのプロフィール</h1>
 
 <table>
   <tbody>
@@ -28,18 +80,16 @@ layout: default
     <tr>
       <th>学歴</th>
       <td>
-        <!-- ************ 学歴のテーブル (ここから) ************ -->
         <table class="educational-backgrounds__table">
           <tbody>
             {% for institution in page.educational_backgrounds %}
               <tr>
                 <th>{{ institution.type }}</th>
-                <th>{{ institution.name }}</th>
+                <td>{{ institution.name }}</td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
-        <!-- ************ 学歴のテーブル (ここまで) ************ -->
       </td>
     </tr>
 
@@ -68,3 +118,6 @@ layout: default
     </tr>
   </tbody>
 </table>
+
+</body>
+</html>
