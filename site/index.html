@@ -46,16 +46,16 @@ layout: default
         margin: 0;
     }
     .syousai {
-        width: 150px; /* 幅を縮小 */
-        height: 15px; /* 高さを縮小 */
-        font-size: 18px; /* フォントサイズを縮小 */
-        display: flex;          
-        justify-content: center; 
-        align-items: center;    
-        padding: 10px 8px; /* パディングを縮小 */
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 8px;
         border: 1px solid white;
-        background: #FF82B2;  
-        margin: 3px; /* マージンを縮小 */
+        background: #FF82B2; /* 修正した部分 */
+        margin: 3px;
         border-radius: 5px;
     }
     .kensaku {
@@ -66,6 +66,9 @@ layout: default
     h1 {
         font-size: 30px; /* フォントサイズを縮小 */
         font-weight: bold;
+    }
+    back{
+      background: #FF82B2;
     }
   </style>
 </head>
@@ -81,8 +84,8 @@ layout: default
   <ul>
     {% for post in site.posts %}
     <div class="posi">
-        <a class="syousai" href="{{ post.url }}">
-         <button>{{ post.name }}</button> 
+        <a class="syousai"  href="{{ post.url }}">
+         <button class="back">{{ post.name }}</button> 
         </a>
     </div>
     {% endfor %}
