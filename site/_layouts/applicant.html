@@ -3,122 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      font-size: 14px;
+      line-height: 1.5;
       margin: 0;
-      padding: 10px;
-      line-height: 1.4;
+      padding: 20px;
+      background-color: #fffefe;
     }
+    .address, .phone {
+  flex: 1;
+  padding: 0 10px;
+  position: relative;
+}
+.address::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+}
+
+    
+    .section {
+  margin-top: 10px;
+  display: flex; 
+  justify-content: space-between; 
+  border: 5px solid #000;
+  padding: 5px;
+  font-size: 19px;
+  margin-bottom: 6px; 
+  padding-left: 10px;
+  width: 760px;
+  margin-right: 20px; 
+  }
+  .section2 {
+  margin-top: 10px;
+  display: flex; 
+  justify-content: space-between; 
+  border: 5px solid #000;
+  padding: 5px;
+  font-size: 16px;
+  margin-bottom: 6px; 
+  width: 956px;
+  margin-right: 20px; 
+  }
+  .section1{
+    border: 5px solid #000;
+    font-size: 19px;
+    margin-bottom: 6px; 
+    padding-left: 8px;
+  }
+
+.address, .phone {
+    flex: 1; 
+    margin-right: 10px;
+    padding:0px;
+}
+
+    .section-title {
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 1px;
+    padding: 0;
+    font-size:22px;
+    
+    width:700px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
     }
-    th, td {
+
+    td {
+      border: 1px solid #000;
       padding: 5px;
-      border: 1px solid #ddd;
-      text-align: left;
-      font-size: 13px;
+      font-size: 10px;
     }
-    th {
-      background-color: #f4f4f4;
-      font-weight: bold;
+
+    .contena{
+      display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        height: 10vh; 
+        margin: 1px;
+        padding: 1px 1px;
     }
-    h1 {
-      font-size: 18px;
-      margin-bottom: 10px;
+    .top{
+      display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        margin:0;
     }
-    ul {
-      padding-left: 20px;
-      margin: 0;
+    .colora{
+      font-size: 40px;
+      background-color: #b0e0e6;
+      padding: 10px;
+      border-radius: 30px;
     }
-    ul li {
-      margin: 0;
+    .home{
+        margin-right: 220px;
     }
-    a {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 14px;
-      text-decoration: none;
-      color: #007BFF;
+    .imagephoto{
+      padding:0px;
     }
-    a:hover {
-      text-decoration: underline;
+    h2{
+      font-size: 20px;
     }
+    .past{
+      padding: 1px;
+      margin-top: 10px;
+      font-size: 10px;
+    }
+    .u{
+      padding: 0;
+      height: 5vh; 
+    }
+    table{
+      font-size: 16px;
+      width:2000px;
+    }
+    .cont{
+      display: flex;
+    align-items: flex-start;
+    }
+    .container {
+    display: flex;
+    align-items: flex-start; 
+    padding: 0;
+    margin: 1px;
+}
+
+.section {
+    margin-right: 20px; 
+}
+
   </style>
 </head>
 <body>
-  <a class="btn btn-primary" href="/" target="_blank">
-    <img src="site/_layouts/screen.png" height="70" width="70" alt="screen image" />
+  <h1 class="top">ES閲覧ページ</h1>
+  <div class="contena">
+  <a class="btn btn-primary" href="/index.html" >
+    <img class="home" src="/home.png" height="80" width="80" />
   </a>
-  
-<h1>{{ page.name }}さんのプロフィール</h1>
+  <a class="btn btn-primary" href="{{page.back}}"  >
+    <img class="home1" src="/スクリーンショット 2024-08-21 093926.png"  height="100" width="100">
+  </a><!--左のボタン-->
+  <h1 class="colora">{{ page.name }}</h1>
+  <a onClick="count();" class="btn btn-primary"  href="{{ page.page_number }}" ><img class="home2" src="/スクリーンショット 2024-08-21 093918.png" height="90" width="90" /></a>
+</div><!--右のボタン-->
 
-<table>
-  <tbody>
-    <!-- 1行目：氏名 -->
-    <tr>
-      <th>氏名</th>
-      <td>{{ page.name }}</td>
-    </tr>
+    </div>
+  <div class="container">
+    <div class="section">
+        <div class="minisection"></div>
+        <div class="address">
+            <h2>〒 {{ page.from_number}}<br>{{ page.from_name }}</h2>
+        </div>
+        <div class="phone">
+            <h2>電話番号: {{ page.phone }}</h2>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="imagephoto" src={{page.photo}} alt="プロフィール写真" height="160" width="140">
+    </div>
+</div>
 
-    <!-- 2行目：保有資格、スキル -->
-    <tr>
-      <th>保有資格、スキル</th>
-      <td>
-        <ul>
-          {% for qualification in page.qualifications %}
-            <li>{{ qualification }}</li>
-          {% endfor %}
-        </ul>
-      </td>
-    </tr>
-
-    <!-- 3行目：学歴 -->
-    <tr>
-      <th>学歴</th>
-      <td>
-        <table class="educational-backgrounds__table">
-          <tbody>
-            {% for institution in page.educational_backgrounds %}
-              <tr>
-                <th>{{ institution.type }}</th>
-                <td>{{ institution.name }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </td>
-    </tr>
-
-    <!-- 4行目：志望動機 -->
-    <tr>
-      <th>志望動機</th>
-      <td>{{ page.motivation }}</td>
-    </tr>
-
-    <!-- 5行目：学業、ゼミなどで取り組んだ内容 -->
-    <tr>
-      <th>学業、ゼミなどで<br />取り組んだ内容</th>
-      <td>{{ page.study }}</td>
-    </tr>
-
-    <!-- 6行目：自己PR -->
-    <tr>
-      <th>自己PR</th>
+  <div class="past">
+    <div class="section2">
+      <div class="section-title">学歴</div>
+      <u></u>
+      <table>
+              {% for institution in page.educational_backgrounds %}
+                <tr>
+                  <th>{{ institution.type }}</th>
+                  <th>{{ institution.name }}</th>
+                  <br>
+                </tr>
+              {% endfor %}
+      </table>
+      <h2>     </h2>
+      <div class="section-title">スキル・資格</div>
+      <table>
+              {% for institution in page.qualifications %}
+                <tr>
+                  <th>{{ institution }}</th>
+                  <br>
+                </tr>
+              {% endfor %}
+      </table>
+    </div>
+  </div>
+    <div class="section1">
+      <div class="section-title">志望動機</div>
+      <u>----------------------------------------------------------------------------------------------------------------------------------------------</u>
+      <br><th>{{ page.motivation }}</th>
+    </div>
+    <div class="section1">
+      <div class="section-title">学業、ゼミなどで取り組んだ内容 (300字以内)</div>
+      <u>----------------------------------------------------------------------------------------------------------------------------------------------</u><br>
+      <th>{{ page.study }}</th>
+    </div>
+    <div class="section1">
+      <div class="section-title">自己PR (300字以内)</div>
+      <u>----------------------------------------------------------------------------------------------------------------------------------------------</u><br>
       <td>{{ page.promotion }}</td>
-    </tr>
-
-    <!-- 7行目：学生時代に最も打ち込んだこと -->
-    <tr>
-      <th>学生時代に<br />最も打ち込んだこと</th>
+    </div>
+    <div class="section1">
+      <div class="section-title">学生時代に最も打ち込んだこと (300字以内)</div>
+      <u>----------------------------------------------------------------------------------------------------------------------------------------------</u><br>
       <td>{{ page.best }}</td>
-    </tr>
-  </tbody>
-</table>
-
+    </div>
+  </div>
 </body>
 </html>
