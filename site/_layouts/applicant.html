@@ -25,6 +25,17 @@
   height: 100%;
   background-color: #000;
 }
+.section-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+  
+}
+
 
     
     .section {
@@ -62,13 +73,27 @@
     margin-right: 10px;
     padding:0px;
 }
+.address, .section-title2 {
+    flex: 1; 
+    margin-right: 10px;
+    padding:0px;
+}
 
     .section-title {
     font-weight: bold;
     padding: 0;
     margin-bottom: 1px;
     padding: 0;
-    font-size:22px;
+    font-size:20px;
+    
+    width:700px;
+    }
+    .section-title2 {
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 1px;
+    padding: 0;
+    font-size:20px;
     
     width:700px;
     }
@@ -143,6 +168,14 @@
 .section {
     margin-right: 20px; 
 }
+.divider {
+  position: relative;
+  border-top: 1px solid #000;
+  height: 3px; /* 線の太さ */
+  background-color: #000; /* 線の色 */
+  margin: 20px 0; /* 上下のマージン */
+}
+
 
   </style>
 </head>
@@ -175,7 +208,7 @@
     </div>
 </div>
 
-  <div class="past">
+ <!-- <div class="past">
     <div class="section2">
       <div class="section-title">学歴</div>
       <u></u>
@@ -189,7 +222,8 @@
               {% endfor %}
       </table>
       <h2>     </h2>
-      <div class="section-title">スキル・資格</div>
+      
+      <div class="section-title2">スキル・資格</div>
       <table>
               {% for institution in page.qualifications %}
                 <tr>
@@ -199,7 +233,34 @@
               {% endfor %}
       </table>
     </div>
+  </div>-->
+  <div class="past">
+    <div class="section2">
+      <div class="section-title">学歴</div>
+      <u></u>
+      <table>
+        {% for institution in page.educational_backgrounds %}
+          <tr>
+            <th>{{ institution.type }}</th>
+            <th>{{ institution.name }}</th>
+          </tr>
+        {% endfor %}
+      </table>
+      
+      <hr size="120px">
+      <div class="divider"></div>
+  
+      <div class="section-title2">スキル・資格</div>
+      <table>
+        {% for institution in page.qualifications %}
+          <tr>
+            <th>{{ institution }}</th>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
   </div>
+  
     <div class="section1">
       <div class="section-title">志望動機</div>
       <u>----------------------------------------------------------------------------------------------------------------------------------------------</u>
